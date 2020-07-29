@@ -1,7 +1,6 @@
-import 'dart:io';
+import 'package:universal_platform/universal_platform.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 /// A wrapper class for calling the show function
 class PlatformDatePicker {
@@ -51,7 +50,7 @@ class PlatformDatePicker {
     bool showMaterial = false,
     bool showCupertino = false,
   }) async {
-    if (Platform.isIOS || showCupertino) {
+    if ((UniversalPlatform.isIOS && !showMaterial) || showCupertino) {
       DateTime keep;
       await showModalBottomSheet(
         context: context,
@@ -75,7 +74,7 @@ class PlatformDatePicker {
         },
       );
       return keep;
-    } else if (Platform.isAndroid || showMaterial) {
+    } else {
       return await showDatePicker(
         context: context,
         initialDate: initialDate,
@@ -96,11 +95,6 @@ class PlatformDatePicker {
         selectableDayPredicate: selectableDayPredicate,
         textDirection: textDirection,
         useRootNavigator: useRootNavigator,
-      );
-    } else {
-      throw PlatformException(
-        code: 'Unsupported Platform',
-        message: 'Only Android and IOS are supported',
       );
     }
   }

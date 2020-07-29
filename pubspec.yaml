@@ -1,5 +1,5 @@
 name: platform_date_picker
-description: A platform aware date picker function.
+description: A platform aware date picker. Unlike the showDatePicker function, this package automatically chooose the appropiate widget depending on the platform.
 version: 0.0.1
 homepage: https://github.com/aaqibism/platform_date_picker
 
@@ -7,6 +7,7 @@ environment:
   sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
+  universal_platform: ^0.1.3
   flutter:
     sdk: flutter
 
