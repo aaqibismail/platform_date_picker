@@ -1,8 +1,7 @@
 name: platform_date_picker
 description: A platform aware date picker function.
 version: 0.0.1
-author: Aaqib Ismail <aaqibismail@gmail.com>
-homepage: https://github.com/aaqibism/
+homepage: https://github.com/aaqibism/platform_date_picker
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
