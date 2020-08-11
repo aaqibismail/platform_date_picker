@@ -1,6 +1,6 @@
 name: platform_date_picker
-description: A platform aware date picker. Unlike the showDatePicker function, this package automatically chooose the appropiate widget depending on the platform.
-version: 0.0.2
+description: A platform aware date and time picker. Unlike the showDatePicker and showTimePicker functions, this package automatically chooose the appropiate widget depending on the platform.
+version: 0.0.3
 homepage: https://github.com/aaqibism/platform_date_picker
 
 environment:

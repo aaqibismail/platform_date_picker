@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:platform_date_picker/platform_date_picker.dart';
 
 void main() {
@@ -26,6 +27,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   DateTime date = DateTime.now();
+  TimeOfDay time = TimeOfDay.now();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,13 +49,20 @@ class _HomePageState extends State<HomePage> {
                 textAlign: TextAlign.center,
               ),
             ),
+            ListTile(
+              title: Text(
+                formatTime(time),
+                style: TextStyle(fontSize: 30),
+                textAlign: TextAlign.center,
+              ),
+            ),
             MaterialButton(
               height: 70,
               minWidth: double.infinity,
               color: Colors.lightBlue,
-              child: Text('Regular'),
+              child: Text('Default Date Picker'),
               onPressed: () async {
-                DateTime temp = await PlatformDatePicker.show(
+                DateTime temp = await PlatformDatePicker.showDate(
                   context: context,
                   firstDate: DateTime(DateTime.now().year - 2),
                   initialDate: DateTime.now(),
@@ -66,9 +75,9 @@ class _HomePageState extends State<HomePage> {
               height: 70,
               minWidth: double.infinity,
               color: Colors.blueAccent,
-              child: Text('Force Cupertino'),
+              child: Text('Force Cupertino Date Picker'),
               onPressed: () async {
-                DateTime temp = await PlatformDatePicker.show(
+                DateTime temp = await PlatformDatePicker.showDate(
                   context: context,
                   firstDate: DateTime(DateTime.now().year - 2),
                   initialDate: DateTime.now(),
@@ -82,9 +91,9 @@ class _HomePageState extends State<HomePage> {
               height: 70,
               minWidth: double.infinity,
               color: Colors.teal,
-              child: Text('Different Height'),
+              child: Text('Different Height Date Picker'),
               onPressed: () async {
-                DateTime temp = await PlatformDatePicker.show(
+                DateTime temp = await PlatformDatePicker.showDate(
                   context: context,
                   firstDate: DateTime(DateTime.now().year - 2),
                   initialDate: DateTime.now(),
@@ -95,9 +104,59 @@ class _HomePageState extends State<HomePage> {
                 if (temp != null) setState(() => date = temp);
               },
             ),
+            MaterialButton(
+              height: 70,
+              minWidth: double.infinity,
+              color: Colors.green,
+              child: Text('Default Time Picker'),
+              onPressed: () async {
+                TimeOfDay temp = await PlatformDatePicker.showTime(
+                  context: context,
+                  initialTime: time,
+                );
+                if (temp != null) setState(() => time = temp);
+              },
+            ),
+            MaterialButton(
+              height: 70,
+              minWidth: double.infinity,
+              color: Colors.deepPurple,
+              child: Text('Force Cupertino Time Picker'),
+              onPressed: () async {
+                TimeOfDay temp = await PlatformDatePicker.showTime(
+                  context: context,
+                  initialTime: time,
+                  showCupertino: true,
+                );
+                if (temp != null) setState(() => time = temp);
+              },
+            ),
+            MaterialButton(
+              height: 70,
+              minWidth: double.infinity,
+              color: Colors.blue[700],
+              child: Text('Different Height Time Picker'),
+              onPressed: () async {
+                TimeOfDay temp = await PlatformDatePicker.showTime(
+                  context: context,
+                  initialTime: time,
+                  showCupertino: true,
+                  height: 100,
+                );
+                if (temp != null) setState(() => time = temp);
+              },
+            ),
           ],
         ),
       ),
     );
+  }
+
+  String formatTime(TimeOfDay time) {
+    DateTime current = new DateTime.now();
+    current = DateTime(
+        current.year, current.month, current.day, time.hour, time.minute);
+    DateFormat format = DateFormat.jm();
+    return format.format(current);
   }
 }

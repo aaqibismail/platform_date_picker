@@ -18,7 +18,7 @@ class PlatformDatePicker {
   ///
   /// [height] specifies the size of the cupertino date picker. It defaults to
   /// the bottom third of the screen.
-  static Future<DateTime> show({
+  static Future<DateTime> showDate({
     @required BuildContext context,
     @required DateTime initialDate,
     @required DateTime firstDate,
@@ -40,7 +40,6 @@ class PlatformDatePicker {
     String fieldLabelText,
     Key key,
     CupertinoDatePickerMode mode = CupertinoDatePickerMode.date,
-    DateTime initialDateTime,
     int minimumYear = 1,
     int maximumYear,
     int minuteInterval = 1,
@@ -94,6 +93,62 @@ class PlatformDatePicker {
         routeSettings: routeSettings,
         selectableDayPredicate: selectableDayPredicate,
         textDirection: textDirection,
+        useRootNavigator: useRootNavigator,
+      );
+    }
+  }
+
+  static Future<TimeOfDay> showTime({
+    @required BuildContext context,
+    @required TimeOfDay initialTime,
+    TransitionBuilder builder,
+    bool useRootNavigator = true,
+    RouteSettings routeSettings,
+    Key key,
+    CupertinoDatePickerMode mode = CupertinoDatePickerMode.time,
+    int minuteInterval = 1,
+    bool use24hFormat = false,
+    Color backgroundColor,
+    double height,
+    bool showCupertino = false,
+    bool showMaterial = false,
+  }) async {
+    if ((UniversalPlatform.isIOS && !showMaterial) || showCupertino) {
+      DateTime now = DateTime.now();
+      DateTime keep;
+      await showModalBottomSheet(
+        context: context,
+        builder: (BuildContext builder) {
+          return Container(
+            height: height ?? MediaQuery.of(context).copyWith().size.height / 3,
+            child: CupertinoDatePicker(
+              key: key,
+              mode: mode,
+              onDateTimeChanged: (date) => keep = date,
+              backgroundColor: backgroundColor,
+              initialDateTime: DateTime(
+                now.year,
+                now.month,
+                now.day,
+                initialTime.hour,
+                initialTime.minute,
+              ),
+              minuteInterval: minuteInterval,
+              use24hFormat: use24hFormat,
+            ),
+          );
+        },
+      );
+      if (keep != null) {
+        return TimeOfDay.fromDateTime(keep);
+      }
+      return null;
+    } else {
+      return await showTimePicker(
+        context: context,
+        initialTime: initialTime,
+        builder: builder,
+        routeSettings: routeSettings,
         useRootNavigator: useRootNavigator,
       );
     }
