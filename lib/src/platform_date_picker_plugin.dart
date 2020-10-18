@@ -1,4 +1,3 @@
-import 'package:universal_platform/universal_platform.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -49,7 +48,8 @@ class PlatformDatePicker {
     bool showMaterial = false,
     bool showCupertino = false,
   }) async {
-    if ((UniversalPlatform.isIOS && !showMaterial) || showCupertino) {
+    if ((Theme.of(context).platform == TargetPlatform.iOS && !showMaterial) ||
+        showCupertino) {
       DateTime keep;
       await showModalBottomSheet(
         context: context,
@@ -113,7 +113,8 @@ class PlatformDatePicker {
     bool showCupertino = false,
     bool showMaterial = false,
   }) async {
-    if ((UniversalPlatform.isIOS && !showMaterial) || showCupertino) {
+    if ((Theme.of(context).platform == TargetPlatform.iOS && !showMaterial) ||
+        showCupertino) {
       DateTime now = DateTime.now();
       DateTime keep;
       await showModalBottomSheet(

@@ -67,6 +67,17 @@ class _HomePageState extends State<HomePage> {
                   firstDate: DateTime(DateTime.now().year - 2),
                   initialDate: DateTime.now(),
                   lastDate: DateTime(DateTime.now().year + 2),
+                  builder: (context, child) => Theme(
+                    data: ThemeData.light().copyWith(
+                      primaryColor: const Color(0xFF8CE7F1),
+                      accentColor: const Color(0xFF8CE7F1),
+                      colorScheme:
+                          ColorScheme.light(primary: const Color(0xFF8CE7F1)),
+                      buttonTheme:
+                          ButtonThemeData(textTheme: ButtonTextTheme.primary),
+                    ),
+                    child: child,
+                  ),
                 );
                 if (temp != null) setState(() => date = temp);
               },
