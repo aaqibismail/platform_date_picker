@@ -1,3 +1,7 @@
+## [0.0.4+1] - 10/17/2020.
+
+- Update pubspec description.
+
 ## [0.0.4] - 10/17/2020.
 
 - Removed universal_platform dependency. It now checks for the Target Platform

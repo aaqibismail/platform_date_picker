@@ -1,6 +1,6 @@
 name: platform_date_picker
-description: A platform aware date and time picker. Unlike the default Flutter showDatePicker and showTimePicker functions, this package automatically chooose the appropiate widget depending on the platform specified in the ThemeData of MaterialApp and CupertinoApp.
-version: 0.0.4
+description: Unlike the default show date and time functions, this package chooses the appropiate widget depending on the platform specified in the ThemeData of MaterialApp and CupertinoApp.
+version: 0.0.4+1
 homepage: https://github.com/aaqibism/platform_date_picker
 
 environment:
