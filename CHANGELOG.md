@@ -1,3 +1,14 @@
+## [0.2.0-nullsafety.0] - 3/5/2020.
+
+- Updated to Flutter 2.0.0 with support for newer CupertinoPicker Visuals.
+- Deprecated PlatformDatePicker class in favor of top level functions:
+showPlatformDatePicker and showPlatformTimePicker.
+- Updated README and example app to show how to handle Dark Mode.
+
+## [0.1.0-nullsafety.0] - 12/5/2020.
+
+- Migrated to null safety. Requires at least Flutter v1.24 or Dart v2.12.
+
 ## [0.0.4+1] - 10/17/2020.
 
 - Update pubspec description.
