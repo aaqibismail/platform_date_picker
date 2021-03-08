@@ -22,12 +22,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         cupertinoOverrideTheme: const CupertinoThemeData().copyWith(
-          textTheme: CupertinoThemeData().textTheme.copyWith(
-                navTitleTextStyle: CupertinoThemeData()
-                    .textTheme
-                    .navTitleTextStyle
-                    .apply(color: Colors.white),
-              ),
+          textTheme: CupertinoTextThemeData(),
         ),
       ),
       home: HomePage(),

@@ -1,3 +1,7 @@
+## [0.2.0-nullsafety.0+1] - 3/8/2020.
+
+- Updated README about implementing automatic dark theme.
+
 ## [0.2.0-nullsafety.0] - 3/5/2020.
 
 - Updated to Flutter 2.0.0 with support for newer CupertinoPicker Visuals.

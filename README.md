@@ -44,12 +44,7 @@ This package only supports correct theme handling with MaterialApp not with Cupe
 ```
 darkTheme: ThemeData(
     cupertinoOverrideTheme: const CupertinoThemeData().copyWith(
-        textTheme: CupertinoThemeData().textTheme.copyWith(
-            navTitleTextStyle: CupertinoThemeData()
-                .textTheme
-                .navTitleTextStyle
-                .apply(color: Colors.white),
-        ),
+        textTheme: CupertinoTextThemeData(),
     ),
 ),
 ```

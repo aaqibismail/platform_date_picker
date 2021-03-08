@@ -1,6 +1,6 @@
 name: platform_date_picker
 description: Unlike the default show date and time functions, this package chooses the appropiate widget depending on the platform specified in the ThemeData of MaterialApp.
-version: 0.2.0-nullsafety.0
+version: 0.2.0-nullsafety.0+1
 homepage: https://github.com/aaqibism/platform_date_picker
 
 environment:
