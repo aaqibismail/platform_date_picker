@@ -78,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                 builder: (context, child) => Theme(
                   data: Theme.of(context).copyWith(
                     primaryColor: const Color(0xFF8CE7F1),
-                    accentColor: const Color(0xFF8CE7F1),
+                    // accentColor: const Color(0xFF8CE7F1),
                     colorScheme: ColorScheme.fromSwatch(
                       primarySwatch: Colors.purple,
                       brightness: Theme.of(context).brightness,
